@@ -1,0 +1,31 @@
+---
+
+- name: Ensure Homebrew Taps.
+  homebrew_tap:
+    tap: "{{ item }}"
+    state: present
+  with_items:
+    - caskroom/drivers
+    - caskroom/fonts
+    - caskroom/versions
+    - buo/cask-upgrade
+
+- name: Install app casks.
+  homebrew_cask:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - docker
+    - github
+    - google-chrome
+    - jetbrains-toolbox
+    - slack
+    - virtualbox
+    - vlc
+    - whatsapp
+    - terraform
+    - consul
+
+- name: Accept Xcode license.
+  shell: xcodebuild -license accept
+  become: true
