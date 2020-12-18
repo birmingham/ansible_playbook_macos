@@ -15,25 +15,26 @@
     name: "{{ item }}"
     state: installed
   with_items:
+    - consul
     - docker
     - git
     - go
     - google-chrome
     - jetbrains-toolbox
-    - slack
-    - virtualbox
-    - vlc
-    - whatsapp
-    - ipcalc
+    - ipcalc # calculate various network subnet masks etc., from a given ip address
+    - kt2f # kubernetes yml to terraform convertor (https://github.com/sl1pm4t/k2tf)
+    - kubernetes-cli
     - nvm
     - packer
+    - ruby
+    - slack
     - terraform
-    - tfswitch
+    - tfswitch # switch between different versions of terraform (https://tfswitch.warrensbox.com/)
     - tree
+    - virtualbox
+    - vlc
     - wget
-    - kt2f
-    - consul
-    - kubernetes-cli
+    - whatsapp
     
 
 - name: Accept Xcode license.
