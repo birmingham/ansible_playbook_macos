@@ -16,15 +16,25 @@
     state: installed
   with_items:
     - docker
-    - github
+    - git
+    - go
     - google-chrome
     - jetbrains-toolbox
     - slack
     - virtualbox
     - vlc
     - whatsapp
+    - ipcalc
+    - nvm
+    - packer
     - terraform
+    - tfswitch
+    - tree
+    - wget
+    - kt2f
     - consul
+    - kubernetes-cli
+    
 
 - name: Accept Xcode license.
   shell: xcodebuild -license accept
