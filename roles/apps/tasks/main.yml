@@ -26,6 +26,7 @@
     - kubernetes-cli
     - nvm
     - packer
+    - python # installs latest version of python including pip
     - ruby
     - slack
     - terraform
@@ -36,7 +37,9 @@
     - wget
     - whatsapp
     
-
+- name: Install aws cli
+  shell: pip install --upgrade awscli
+  
 - name: Accept Xcode license.
   shell: xcodebuild -license accept
   become: true
