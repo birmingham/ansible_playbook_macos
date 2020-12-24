@@ -4,9 +4,6 @@
   hosts: localhost
 
   roles:
-    - name: shell
-      tags: [shell]
-
     - name: yadm
       tags: [yadm]
 
