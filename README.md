@@ -33,7 +33,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/birmingham/ansible_playboo
 xcode-select --install
 
 # Install Homebrew (see http://brew.sh)
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # Install ansible
 brew install ansible
