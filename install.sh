@@ -11,7 +11,7 @@ set -o errexit
 set -o errtrace
 set -o nounset
 
-REPO="https://github.com/birmingham/ansible_playbook_macos.git"
+GIT_REPO="git@github.com:birmingham/ansible_playbook_macos.git"
 TARGET_DIR="$HOME/birmingham_github/ansible_playbook_macos"
 
 if ! xcode-select --print-path &> /dev/null; then
@@ -35,7 +35,7 @@ if test ! $(which brew); then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   echo "Done"
 else
-  echo "Homebrew is already installed"
+  echo "Yaaaay! Homebrew is already installed!"
 fi
 
 if test ! $(which ansible); then
@@ -43,22 +43,24 @@ if test ! $(which ansible); then
   brew install ansible
   echo "Done"
 else
-  echo "Ansible is already installed"
+  echo "Yaaaaay! Ansible is already installed!"
 fi
 
 if [ ! -d "$TARGET_DIR" ]; then
-  echo "Cloning playbook repository"
+  echo "Cloning playbook repository..."
   echo
-  echo "From: $REPO"
+  echo "From: $GIT_REPO"
   echo
   echo "To: $TARGET_DIR"
-  git clone $REPO "$TARGET_DIR"
+  git clone $GIT_REPO "$TARGET_DIR"
 else
-  echo "The directory for the playbook repository is already in place"
+  echo "The directory for the playbook repository is already in place!"
 fi
 
 echo "Changing directory to $TARGET_DIR then running ansible playbook"
 cd "$TARGET_DIR"
 
-echo "Running the playbook"
+echo "Running the ansible playbook..."
 ansible-playbook setup.yml
+
+echo "Install.sh COMPLETE!!!"
