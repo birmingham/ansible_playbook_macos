@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+#############################################################################################################################################
+#
+# Important:  Ssh keys added to your Github account are required to make this script run successfully.
+# Please see https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+#
+#############################################################################################################################################
+
 set -o errexit
 set -o errtrace
 set -o nounset
@@ -41,11 +48,16 @@ fi
 
 if [ ! -d "$TARGET_DIR" ]; then
   echo "Cloning playbook repository"
-  mkdir -p "$TARGET_DIR" && git clone $REPO "$TARGET_DIR"
+  echo
+  echo "From: $REPO"
+  echo
+  echo "To: $TARGET_DIR"
+  git clone $REPO "$TARGET_DIR"
 else
-  echo "The playbook repository is already in place"
+  echo "The directory for the playbook repository is already in place"
 fi
 
+echo "Changing directory to $TARGET_DIR then running ansible playbook"
 cd "$TARGET_DIR"
 
 echo "Running the playbook"
